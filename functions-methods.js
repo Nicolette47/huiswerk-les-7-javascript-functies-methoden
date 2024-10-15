@@ -9,8 +9,13 @@
 // getEmailDomain("t.mellink@novi.nl") geeft novi.nl
 // getEmailDomain("a.wiersma@outlook.com") geeft outlook.com
 
+function getEmailDomain (email) {
+    const emailToDomain = email.indexOf("@");
+    return email.substring(emailToDomain + 1);
+}
 
-
+const domainName = getEmailDomain("a.wiersma@outlook.com");
+console.log(domainName);
 
 /* Opdracht  2 */
 // Schrijf een functie genaamd typeOfEmail, die een emailadres verwacht. De functie checkt of het emailadres een novi domein heeft (medewerker), een novi-education domein (student), of extern domein (zoals gmail of outlook)
