@@ -9,12 +9,12 @@
 // getEmailDomain("t.mellink@novi.nl") geeft novi.nl
 // getEmailDomain("a.wiersma@outlook.com") geeft outlook.com
 
-function getEmailDomain (email) {
+function getEmailDomain(email) {
     const emailToDomain = email.indexOf("@");
     return email.substring(emailToDomain + 1);
 }
 
-const domainName = getEmailDomain("a.wiersma@outlook.com");
+const domainName = getEmailDomain("n.eeken@novi-education.nl");
 console.log(domainName);
 
 /* Opdracht  2 */
@@ -25,6 +25,31 @@ console.log(domainName);
 // typeOfEmail("novi.nlaapjesk@outlook.com") geeft geeft "Extern" <-- deze moet het ook doen!
 // typeOfEmail("a.wiersma@outlook.com") geeft "Extern"
 
+//Stappenplan:
+// input = emailadres
+// output = status van die persoon; medewerker, student of extern
+// Stappenplan:
+//1. argument (specifiek mailadres) komt via parameters de functie binnen.
+//2. alles voor de @ moet eraf, domein gedeelte opslaan in variabele
+//3. Variabele met domein naam nu vergelijken:
+//    a. is het novi-education.nl dan student teruggeven
+//    b. is het novi.nl dan medewerker teruggeven
+//    a. is het anders dan extern teruggeven
+
+function typeOfEmail(email) {
+    const emailToDomain2 = email.indexOf("@");
+    const domainName = email.substring(emailToDomain2 + 1);
+    if (domainName === "novi.nl") {
+        return "Medewerker";
+    } else if (domainName === "novi-education.nl") {
+        return "Student";
+    } else {
+        return "Extern";
+    }
+}
+
+const typeUser = typeOfEmail("t.mellink@novi.nl");
+console.log(typeUser);
 
 
 /* Opdracht  3 */
@@ -39,3 +64,21 @@ console.log(domainName);
 // checkEmailValidity("n.eekenanovi.nl") geeft false - want geen @
 // checkEmailValidity("n.eeken@novinl.") geeft false - want de punt mag niet als laatst
 // checkEmailValidity("tessmellink@novi,nl") geeft false - want er staat een komma in
+
+// SCHEMA
+// 1. sla gegeven email op
+// 2. check of er een . in voorkomt als allerlaatste karakter of een , . Zoja dan false loggen.
+// 3. check of email een @ bevat. Zoja dan emailadres als true loggen. Zonee, dan false.
+
+function checkEmailValidity(email) {
+    if (email.lastIndexOf(".") === email.length - 1 || email.includes(",")) {
+        return "false";
+    } else if (email.includes("@")) {
+        return "true";
+    } else {
+        return "false";
+    }
+}
+
+const emailValide = checkEmailValidity("tessmellink@novi,nl");
+console.log(emailValide);
