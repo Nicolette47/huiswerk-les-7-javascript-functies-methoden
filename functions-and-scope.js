@@ -2,7 +2,7 @@
 // maar ook een manier moeten vinden om hetgeen dat je verzamelt ergens te bundelen. Op deze manier zul je ontdekken hoe je omgaat met scope. Pak vooral het hoofdstuk op EdHub over for-loops er nog eens bij!
 // Tip: je mag hier geen ingebouwde object methoden gebruiken, dus daar hoef je niet naar te kijken.
 
-const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
+//const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 
 /* Opdracht  1: Cum Laude */
 
@@ -16,6 +16,23 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 
 // ---- Verwachte uitkomst: 6
 
+//Stappenplan:
+// 1.Maak een opslag plaats waar we opslaan dat er een 8 of hoger is gevonden. alle keren dat er een 8 is gevonden
+// 2. Loop door de array en check elke waarde op 8 of hoger.
+// a) is 8 of hoger sla dan op in de gecreeerde opslagplaats.
+// b) is minder dan 8 dan gewoon verder gaan met checken array.
+// 3. geef het aantal keren dat er 8 of hoger is gescored, terug.
+
+const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
+
+let cumLaudeCount2 = 0;
+
+for (let i = 0; i < grades.length; i++) {
+    cumLaudeCount2 += grades[i] >= 8;
+}
+
+console.log(cumLaudeCount2);
+
 
 /*  1b: Omschrijven tot een herbruikbare functie   */
 // Schrijf een functie genaamd cumLaude, die een array van cijfers verwacht (zoals grades) en het aantal Cum laude studenten teruggeeft. Gebruik hiervoor jouw antwoord van 1a.
@@ -27,6 +44,21 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // cumLaude([6, 4, 5]) geeft 0
 // cumLaude([8, 9, 4, 6, 10]) geeft 3
 
+const grades1 = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
+const grades2 = [6, 4, 5];
+const grades3 = [8, 9, 4, 6, 10];
+
+function cumLaude(grade) {
+    let cumLaudeCount = 0;
+  for (let i = 0; i < grade.length; i++) {
+      if (grade[i] >= 8) {
+         cumLaudeCount++;
+      }
+  } return cumLaudeCount;
+}
+
+const totalCumLaude = cumLaude(grades3);
+console.log(totalCumLaude);
 
 
 
@@ -57,8 +89,6 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 /* 2c: Afronden op twee decimalen */
 // Zorg ervoor dat het gemiddelde cijfer dat wordt teruggegeven uit de functie netjes wordt afgerond op twee decimalen.
 // Tip: Google is your best friend!
-
-
 
 
 /* Bonusopdracht: hoogste cijfer */
